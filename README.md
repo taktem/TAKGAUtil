@@ -1,0 +1,2 @@
+# TAKGAUtil
+GA　SDK　Wrapper
