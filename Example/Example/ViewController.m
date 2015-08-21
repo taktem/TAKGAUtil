@@ -10,7 +10,7 @@
 
 #import "TAKGAUtil.h"
 
-static NSString * const GA_TRACKING_ID = @"";
+static NSString * const GA_TRACKING_ID = @"UA-66615385-1";
 
 @interface ViewController ()
 
