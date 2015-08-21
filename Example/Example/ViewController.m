@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
+#import "TAKGAUtil.h"
+
+static NSString * const GA_TRACKING_ID = @"";
+
 @interface ViewController ()
 
 @end
@@ -16,12 +20,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [TAKGAUtil defaultSettingWithTracingId:GA_TRACKING_ID];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+#pragma Send GA
+- (IBAction)screnButtonTapped:(UIButton *)sender {
+    [TAKGAUtil trackScreen:sender.titleLabel.text];
+}
+
+- (IBAction)eventButtonTapped:(UIButton *)sender {
+    [TAKGAUtil trackEventWithCategory:@"Sample"
+                               action:@"Button"
+                                label:sender.titleLabel.text
+                                value:sender.tag];
+}
+
+- (IBAction)bothButtonTapped:(UIButton *)sender {
+    [TAKGAUtil trackEventWithScreen:sender.titleLabel.text
+                           category:@"Sample"
+                             action:@"Button"
+                              label:sender.titleLabel.text
+                              value:sender.tag];
 }
 
 @end
