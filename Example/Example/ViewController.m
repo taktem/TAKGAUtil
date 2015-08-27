@@ -10,8 +10,6 @@
 
 #import "TAKGAUtil.h"
 
-static NSString * const GA_TRACKING_ID = @"UA-66615385-1";
-
 @interface ViewController ()
 
 @end
@@ -20,8 +18,6 @@ static NSString * const GA_TRACKING_ID = @"UA-66615385-1";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [TAKGAUtil defaultSettingWithTracingId:GA_TRACKING_ID];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,9 +8,7 @@
 
 #import "TAKGAUtil.h"
 
-#import "GAI.h"
-#import "GAIFields.h"
-#import "GAIDictionaryBuilder.h"
+#import <Google/Analytics.h>
 
 @implementation TAKGAUtil
 
@@ -19,11 +17,24 @@
  *
  *  @param trackingId
  */
-+ (void)defaultSettingWithTracingId:(NSString *)trackingId {
++ (void)defaultSetting {
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
     [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [GAI sharedInstance].dispatchInterval = 20;
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelWarning];
-    [[GAI sharedInstance] trackerWithTrackingId:trackingId];
+    [GAI sharedInstance].logger.logLevel = kGAILogLevelWarning;
+}
+
+/**
+ *  Set LogLebel
+ *  Default : kGAILogLevelWarning
+ *
+ *  @param logLebel GAILogLevel
+ */
++ (void)setLogLevel:(GAILogLevel)logLebel {
+    [GAI sharedInstance].logger.logLevel = logLebel;
 }
 
 /**
@@ -32,9 +43,9 @@
  *  @param screenName screenName
  */
 + (void)trackScreen:(NSString *)screenName {
-    [[GAI sharedInstance].defaultTracker set:kGAIScreenName
-                                       value:screenName];
-    [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName
+                                         value:screenName];
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createScreenView] build]];
     [[GAI sharedInstance].defaultTracker set:kGAIScreenName
                                        value:nil];
 }

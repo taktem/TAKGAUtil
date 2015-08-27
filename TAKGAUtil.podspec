@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'TAKGAUtil/**/*.{h,m}'
   s.public_header_files = 'TAKGAUtil/**/*.{h}'
-  s.dependency 'GoogleAnalytics-iOS-SDK', '~> 3.12'
+  s.dependency 'Google/Analytics', '~> 1.0.0'
 end

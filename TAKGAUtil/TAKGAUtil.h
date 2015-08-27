@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GAILogger.h"
+
 @interface TAKGAUtil : NSObject
 
 /**
@@ -15,7 +17,15 @@
  *
  *  @param trackingId
  */
-+ (void)defaultSettingWithTracingId:(NSString *)trackingId;
++ (void)defaultSetting;
+
+/**
+ *  Set LogLebel
+ *  Default : kGAILogLevelWarning
+ *
+ *  @param logLebel GAILogLevel
+ */
++ (void)setLogLevel:(GAILogLevel)logLebel;
 
 /**
  *  Tracking Screen
