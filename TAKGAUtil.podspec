@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "TAKGAUtil"
-  s.version      = "1.0"
+  s.version      = "2.1"
   s.summary      = "Google Analytics Utility"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.homepage     = "https://github.com/taktem/TAKGAUtil"
