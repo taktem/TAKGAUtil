@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "TAKGAUtil"
-  s.version      = "2.2"
+  s.version      = "2.3"
   s.summary      = "Google Analytics Utility"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.homepage     = "https://github.com/taktem/TAKGAUtil"
@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'TAKGAUtil/**/*.{h,m}'
   s.public_header_files = 'TAKGAUtil/**/*.{h}'
-  s.dependency 'Google/Analytics', '~> 1.2'
+  s.dependency 'Google/Analytics', '~> 1.0'
 end

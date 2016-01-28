@@ -20,6 +20,11 @@
 + (void)defaultSetting;
 
 /**
+ *  allowIDFACollection
+ */
++ (void)allowIDFACollection:(BOOL)allow;
+
+/**
  *  Set LogLebel
  *  Default : kGAILogLevelWarning
  *

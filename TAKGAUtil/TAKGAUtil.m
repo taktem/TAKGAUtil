@@ -28,6 +28,13 @@
 }
 
 /**
+ *  allowIDFACollection
+ */
++ (void)allowIDFACollection:(BOOL)allow {
+    [GAI sharedInstance].defaultTracker.allowIDFACollection = allow;
+}
+
+/**
  *  Set LogLebel
  *  Default : kGAILogLevelWarning
  *
